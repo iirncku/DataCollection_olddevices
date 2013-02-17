@@ -1,7 +1,7 @@
 /*=====================================================================================*/
 /*Project : 		DataCollection App
-/*執行功能：	感測器資料收集與存檔
-/*關聯檔案：	Feature.java, Main.xml, ActService.java
+/*執行功能：	程式主畫面，控制開始記錄與停止
+/*關聯檔案：	Main.xml, ActService.java
 /*=====================================================================================*/
 package smatch.com.DC;
 
@@ -58,18 +58,6 @@ public class DC extends Activity {
 	/*		開始與暫停記錄按鈕		*/
 	private Button button1;
 	private Button button2;
-	/*		記錄ACCELEROMETER 資料		*/
-	private List<Float> x_list = new ArrayList<Float>();
-	private List<Float> y_list = new ArrayList<Float>();
-	private List<Float> z_list = new ArrayList<Float>();
-	private List<Float> Fx_list = new ArrayList<Float>();
-	private List<Float> Fy_list = new ArrayList<Float>();
-	private List<Float> Fz_list = new ArrayList<Float>();
-	/*		記錄ORIENTATION 資料		*/
-	private List<Float> v0_list = new ArrayList<Float>();
-	private List<Float> v1_list = new ArrayList<Float>();
-	private List<Float> v2_list = new ArrayList<Float>();
-	float x,y,z,v0,v1,v2;
 	private boolean isRunning=false;	//FLAG 判斷是否正在收集資料
 
     @Override
