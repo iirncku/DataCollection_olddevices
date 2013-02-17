@@ -1,6 +1,8 @@
+/*=====================================================================================*/
+/*Project : 		DataCollection App
+/*執行功能：	基本複數計算
+/*=====================================================================================*/
 package smatch.com.DC;
-
-
 public class Complex {
     private final double re;   // the real part
     private final double im;   // the imaginary part

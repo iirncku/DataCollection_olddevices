@@ -1,5 +1,10 @@
-package smatch.com.DC;
+/*=====================================================================================*/
+/*Project : 		DataCollection App
+/*執行功能：	快速傅立葉轉換
+/*關聯檔案：	Complex.java
+/*=====================================================================================*/
 
+package smatch.com.DC;
 public class FFT {
 
     // compute the FFT of x[], assuming its length is a power of 2

@@ -1,3 +1,9 @@
+/*=====================================================================================*/
+/*Project : 		DataCollection App
+/*執行功能：	計算特徵
+/*關聯檔案：	FFT.java , Complex.java
+/*=====================================================================================*/
+
 package smatch.com.DC;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,15 +20,6 @@ public class Features {
 			this.dataY = middleList(y);
 			this.dataZ = middleList(z);
 	}
-	
-//	/* 計算頻域特徵時，將資料點補齊至128個點 */
-//	public List<Float> addZero(List<Float> list) {
-//  		float zero = 0;
-//  		while (list.size() < 128) {
-//  			list.add(zero);
-//  		}
-//  		return list;
-//  	}
 	
 	/* 計算頻域特徵時，取140筆資料的128中段 */
 	public List<Float> middleList(List<Float> list) {
@@ -50,27 +47,6 @@ public class Features {
 	}
 	
 	public double[] getFeatureSet() {
-//		featureSet[0] = ((this.getAmplitude(dataX))*0.02264215)-1.00806705;
-//		featureSet[1] = ((this.getAmplitude(dataY))*0.02700189)-1.2472294;
-//		featureSet[2] = ((this.getAmplitude(dataZ))*0.02538513)-1.00347381;
-//		featureSet[3] = ((this.getCorrelation(dataX, dataY))*1.01486293)+0.01361325;
-//		featureSet[4] = ((this.getCorrelation(dataY, dataZ))*1.02847751)-0.02847751;
-//		featureSet[5] = ((this.getCorrelation(dataX, dataZ))*1.04103293)+0.03980865;
-//		featureSet[6] = ((this.getIQR(dataX))*0.06119951)-1;
-//		featureSet[7] = ((this.getIQR(dataY))*0.08613264)-1;
-//		featureSet[8] = ((this.getIQR(dataZ))*0.10989011)-1;
-//		featureSet[9] = ((this.getMean(dataX))*0.15419581)-0.21589012;
-//		featureSet[10] = ((this.getMean(dataY))*0.09260676)+0.33760926;
-//		featureSet[11] = this.getMedian(dataX);    //備用
-//		featureSet[12] = ((this.getMedian(dataY))*0.08915551)+0.36612023;
-//		featureSet[13] = ((this.getMedian(dataZ))*0.10563966)-0.04676258;
-//		featureSet[14] = ((this.getStep(dataX))*0.09090909)-1;
-//		featureSet[15] = ((this.getStep(dataY))*0.06666667)-1;
-//		featureSet[16] = ((this.getStep(dataZ))*0.08)-1;
-//		featureSet[17] = this.getPowerSpectral(dataX);     //備用
-//		featureSet[18] = this.getPowerSpectral(dataZ);     //備用
-//		featureSet[19] = ((this.getSma(dataX, dataY, dataZ))*0.07858369)-1.78482476;
-//		featureSet[20] = ((this.getSvm(dataX, dataY, dataZ))*0.00726091)-1.00000292; 
 		featureSet[0] = this.getAmplitude(dataX);
 		featureSet[1] = this.getAmplitude(dataY);
 		featureSet[2] = this.getAmplitude(dataZ);
@@ -130,15 +106,6 @@ public class Features {
 			yy_sum += data2.get(indexX)*data2.get(indexX);
 			xy_sum += data1.get(indexX)*data2.get(indexX);
 		}
-		
-		
-//		while (indexX-- != 0) {
-//			x_sum += dataX.get(indexX);
-//			y_sum += dataY.get(indexX);
-//			xx_sum += dataX.get(indexX) * dataX.get(indexX);
-//			yy_sum += dataY.get(indexX) * dataY.get(indexX);
-//			xy_sum += dataX.get(indexX) * dataY.get(indexX);
-//		}
 		if((Math.sqrt((n * xx_sum - x_sum * x_sum) * (n * yy_sum - y_sum * y_sum)))<0.000000001){
 			de=0.000000001;
 		}else{
@@ -228,9 +195,6 @@ public class Features {
 	
 	//三軸的平均振幅
 	public double getMeanAmp(List<Float> data1, List<Float> data2, List<Float> data3) {
-//		List<Float> data11 = middleList(data1);
-//		List<Float> data22 = middleList(data2);
-//		List<Float> data33 = middleList(data3);
 		double tmp1 = 0.0;
 		double tmp2 = 0.0;
 		double tmp3 = 0.0;
@@ -269,10 +233,6 @@ public class Features {
 	
 	//取得SVM
 	public double getSvm(List<Float> data1, List<Float> data2, List<Float> data3) {
-//		double varX = getVariance(data1);
-//		double varY = getVariance(data2);
-//		double varZ = getVariance(data3);
-//		return Math.sqrt(Math.pow(varX, 2) + Math.pow(varY, 2) + Math.pow(varZ, 2));
 		double svm=0.0;
 		int i,n;
 		double xx, yy, zz, sum;
